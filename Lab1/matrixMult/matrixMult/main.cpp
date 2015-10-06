@@ -13,7 +13,6 @@
 #include <stdio.h>
 #include "matrix.hpp"
 
-
 int main(int argc, const char * argv[]) {
     Matrix *m1, *m2, *m3;
     int rows1, cols1, rows2, cols2;
