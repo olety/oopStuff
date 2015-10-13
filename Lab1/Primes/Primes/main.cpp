@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-
+#include <math.h>
 struct Element{
     int val;
     Element *next, *prev;
@@ -183,10 +183,40 @@ void addList(List2W& l1, List2W& l2){
     }
     
 }
-
+bool isPrime ( int num ){
+    if ( num <= 1 ){
+        return false;
+    } else if ( num <= 3 ) {
+        return true;
+    } else {
+        int upperLim = (int) sqrtf(num);
+        for ( int i = 2; i <= upperLim; i++ ){
+            if ( num%i == 0 ){
+                return false;
+            }
+        }
+    }
+    return true;
+}
 int main(int argc, const char * argv[]) {
     float upperLim;
-    std::cout << "Promes up to : \n";
-    std::cin >> upperLim;
+    char end;
+    List2W list;
+    init(list);
+    while ( true ){
+        std::cout << "Primes up to : \n";
+        std::cin >> upperLim;
+        for ( int i = 2; i <= upperLim; i++){
+            if ( isPrime(i) ){
+                insertTail(list, i);
+            }
+        }
+        showListFromHead(list);
+        clearList(list);
+        std::cout << "Another query? Y/N\n";
+        std::cin >> end;
+        if ( end != 'Y' && end != 'y' )
+            break;
+    }
     return 0;
 }
