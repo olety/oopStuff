@@ -18,9 +18,9 @@ int main(int argc, const char * argv[]) {
     if ( !in.is_open() || !out.is_open()){
         return -1;
     }
-    analyzer *analyze = new analyzer(&in);
+    Analyzer *analyze = new Analyzer(&in);
     analyze->printMatrix();
     analyze->printTotProduct(2, &out);
-    analyze->printTotal();
+    analyze->printTotal( &out );
     return 0;
 }

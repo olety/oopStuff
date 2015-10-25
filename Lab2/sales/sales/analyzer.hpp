@@ -1,5 +1,5 @@
 //
-//  analyzer.hpp
+//  Analyzer.hpp
 //  sales
 //
 //  Created by Oleksii Kyrylchuk on 10/19/15.
@@ -13,11 +13,11 @@
 #include <fstream>
 #include <vector>
 
-class analyzer {
+class Analyzer {
 public:
-    analyzer();
-    analyzer(std::ifstream *in);
-    ~analyzer();
+    Analyzer();
+    Analyzer(std::ifstream *in);
+    ~Analyzer();
     float getTotProduct ( float prodNo );
     float getTotPerson ( float personNo );
     float getTotPersonProduct ( float personNo, float prodNo );
@@ -27,10 +27,11 @@ public:
     void printTotPerson ( float personNo );
     void printTotProduct ( float prodNo );
     void analyzeTotal();
+    void printTotal(std::ofstream *stream);
     void printTotal();
 private:
     std::vector<std::vector<float>> inMatrix;
     std::vector<std::vector<float>> outMatrix;
 };
 
-#endif /* analyzer_hpp */
+#endif /* Analyzer_hpp */

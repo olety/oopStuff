@@ -13,8 +13,8 @@ struct Element{
     Element *next, *prev;
 };
 
-class List2W{
-public: Element *head, *tail;
+struct List2W{
+    Element *head, *tail;
 };
 
 void init(List2W& l){

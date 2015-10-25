@@ -10,47 +10,53 @@
 
 
 
-analyzer::analyzer(){
+Analyzer::Analyzer(){
     int i=0,j;
+    bool a = true;
     std::string line;
-    while(1){
+    while(a){
         this->inMatrix.resize(this->inMatrix.size()+1);
         this->inMatrix[i].resize(3);
         for ( j = 0; j < 3; j++){
             if ( !(std::cin >> this->inMatrix[i][j]) ){
                 this->inMatrix.erase(this->inMatrix.begin()+i);
-                return;
+                a = false;
+                break;
             }
             if ( this->inMatrix[i][j] < 0 || ((j==0)&&(this->inMatrix[i][j]>4)) || ((j==1)&&(this->inMatrix[i][j]>5))){
                 this->inMatrix.erase(this->inMatrix.begin()+i);
-                return;
+                a = false;
+                break;
             }
         }
         i++;
     }
 }
 
-analyzer::analyzer( std::ifstream *in ){
+Analyzer::Analyzer( std::ifstream *in ){
     int i=0,j;
+    bool a = true;
     std::string line;
-    while(1){
+    while(a){
         this->inMatrix.resize(this->inMatrix.size()+1);
         this->inMatrix[i].resize(3);
         for ( j = 0; j < 3; j++){
             if ( !(*in >> this->inMatrix[i][j]) ){
                 this->inMatrix.erase(this->inMatrix.begin()+i);
-                return;
+                a = false;
+                break;
             }
             if ( this->inMatrix[i][j] < 0 || ((j==0)&&(this->inMatrix[i][j]>4)) || ((j==1)&&(this->inMatrix[i][j]>5))){
                 this->inMatrix.erase(this->inMatrix.begin()+i);
-                return;
+                a = false;
+                break;
             }
         }
         i++;
     }
 }
 
-analyzer::~analyzer(){
+Analyzer::~Analyzer(){
     for ( int i = 0; i < this->inMatrix.size(); i++ ){
         this->inMatrix[i].erase(this->inMatrix[i].begin(), this->inMatrix[i].end());
     }
@@ -58,7 +64,7 @@ analyzer::~analyzer(){
 }
 
 
-float analyzer::getTotPerson(float personNo){
+float Analyzer::getTotPerson(float personNo){
     float sum = 0;
     for ( int i = 0; i < this->inMatrix.size(); i++){
         if(this->inMatrix[i][0] == personNo ){
@@ -68,7 +74,7 @@ float analyzer::getTotPerson(float personNo){
     return sum;
 }
 
-float analyzer::getTotProduct(float prodNo){
+float Analyzer::getTotProduct(float prodNo){
     float sum = 0;
     for ( int i = 0; i < this->inMatrix.size(); i++){
         if(this->inMatrix[i][1] == prodNo ){
@@ -77,7 +83,7 @@ float analyzer::getTotProduct(float prodNo){
     }
     return sum;
 }
-float analyzer::getTotPersonProduct( float personNo, float prodNo ){
+float Analyzer::getTotPersonProduct( float personNo, float prodNo ){
     float sum = 0;
     for ( int i = 0; i < this->inMatrix.size(); i++){
         if(this->inMatrix[i][0] == personNo && this->inMatrix[i][1] == prodNo ){
@@ -88,7 +94,7 @@ float analyzer::getTotPersonProduct( float personNo, float prodNo ){
 }
 
 
-void analyzer::printMatrix(){
+void Analyzer::printMatrix(){
     for ( int i = 0; i < this->inMatrix.size(); i++ ){
         for ( int j = 0; j < this->inMatrix[i].size(); j++){
             std::cout << this->inMatrix[i][j] << " ";
@@ -97,27 +103,27 @@ void analyzer::printMatrix(){
     }
 }
 
-void analyzer::printTotPerson(float personNo, std::ofstream *stream){
+void Analyzer::printTotPerson(float personNo, std::ofstream *stream){
     if ( stream->is_open() ){
         *stream << "Total sales by the person #" << personNo << " : " <<  this->getTotPerson(personNo) << std::endl;
     }
 }
 
-void analyzer::printTotPerson(float personNo){
+void Analyzer::printTotPerson(float personNo){
         std::cout << "Total sales by the person #" << personNo << " : " <<  this->getTotPerson(personNo) << std::endl;
 }
 
-void analyzer::printTotProduct(float prodNo, std::ofstream *stream){
+void Analyzer::printTotProduct(float prodNo, std::ofstream *stream){
     if ( stream->is_open() ){
         *stream << "Total sales for the product #" << prodNo << " : " <<  this->getTotProduct(prodNo) << std::endl;
     }
 }
 
-void analyzer::printTotProduct(float prodNo){
+void Analyzer::printTotProduct(float prodNo){
     std::cout << "Total sales for the product #" << prodNo << " : " <<  this->getTotProduct(prodNo) << std::endl;
 }
 
-void analyzer::analyzeTotal(){
+void Analyzer::analyzeTotal(){
     int j;
     this->outMatrix.resize(5);
     for ( int i = 0; i < outMatrix.size(); i++ ){
@@ -128,13 +134,27 @@ void analyzer::analyzeTotal(){
     }
 }
 
-void analyzer::printTotal(){
+void Analyzer::printTotal(){
     analyzeTotal();
     for ( int i = 0; i < this->outMatrix.size(); i++ ){
         for ( int j = 0; j < this->outMatrix[i].size(); j++){
             std::cout << this->outMatrix[i][j] << " ";
         }
         std::cout << std::endl;
+    }
+}
+
+void Analyzer::printTotal( std::ofstream *stream ){
+    if ( stream->is_open() ){
+        analyzeTotal();
+        *stream << "-------ANALIZER MATRIX START---------" << std::endl;
+        for ( int i = 0; i < this->outMatrix.size(); i++ ){
+            for ( int j = 0; j < this->outMatrix[i].size(); j++){
+                *stream << this->outMatrix[i][j] << " ";
+            }
+            *stream << std::endl;
+        }
+        *stream << "-------ANALIZER MATRIX END----------" << std::endl;
     }
 }
 
