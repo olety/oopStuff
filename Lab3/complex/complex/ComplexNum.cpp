@@ -85,11 +85,12 @@ ComplexNum operator - ( ComplexNum minuend, ComplexNum substraend ){
 }
 
 ComplexNum operator * ( ComplexNum number1, ComplexNum number2 ){
-    return ComplexNum(number1.real*number2.real, number1.im*number2.im);
+    return ComplexNum(number1.real*number2.real-number1.im*number2.im, number1.real*number2.im+number1.im*number2.real);
 }
 
 ComplexNum operator / ( ComplexNum dividend, ComplexNum divisor ){
-    return ComplexNum(dividend.real/divisor.real, dividend.im/divisor.im);
+    return ComplexNum((dividend.real*divisor.real+dividend.im*divisor.im)/(divisor.real*divisor.real+divisor.im*divisor.im),
+                      (dividend.im*divisor.real-dividend.real*divisor.im)/(divisor.real*divisor.real+divisor.im*divisor.im));
 }
 
 std::ostream& operator <<(std::ostream &os, const ComplexNum &num){
