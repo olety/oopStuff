@@ -11,6 +11,7 @@
 
 int main(int argc, const char * argv[]) {
     ComplexNum num1(1,2), num2(3,4), num3;
+    std::cin >> num1;
     std::cout << "Number # 1 : " << num1 << std::endl << "Number # 2 : " << num2 << std::endl;
     num3 = num1 + num2;
     std::cout << "Sum : " << num3 << std::endl;
