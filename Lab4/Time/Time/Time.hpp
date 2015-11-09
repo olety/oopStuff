@@ -21,14 +21,13 @@ public:
     void setVar(int number, int value);
     void setAll ( int sec, int mins, int hrs );
     void nullify();
-    int numHours ( Time time2 );
     friend Time operator - (Time time1, Time time2 );
     friend Time operator + (Time time1, Time time2 );
     friend std::ostream& operator << (std::ostream &os, const Time &time);
     friend std::istream& operator >> (std::istream &is, Time &time);
     void print ();
 private:
-    int times[3];
+    int times[3]; // 0 = sec, 1 = mins, 2 = hrs
 };
 
 int max ( int a, int b );

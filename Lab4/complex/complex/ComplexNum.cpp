@@ -91,6 +91,10 @@ ComplexNum operator * ( ComplexNum number1, ComplexNum number2 ){
 }
 
 ComplexNum operator / ( ComplexNum dividend, ComplexNum divisor ){
+    if ( divisor.real == 0 && divisor.im == 0){
+        std::cerr << "Can't divide by 0" << std::endl;
+        return NULL;
+    }
     return ComplexNum((dividend.real*divisor.real+dividend.im*divisor.im)/(divisor.real*divisor.real+divisor.im*divisor.im),
                       (dividend.im*divisor.real-dividend.real*divisor.im)/(divisor.real*divisor.real+divisor.im*divisor.im));
 }

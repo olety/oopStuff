@@ -19,7 +19,6 @@ int main(int argc, const char * argv[]) {
     time3 = time2 - time1;
     std::cout << "Time 2 - Time 1 : " << time3 << std::endl;
     time3 = time1 + time2;
-    std::cout << "Sum of them : " << time3 << std::endl;
-    
+    std::cout << "Sum of them : " << time3 << std::endl; 
     return 0;
 }

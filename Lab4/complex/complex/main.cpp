@@ -12,6 +12,7 @@
 int main(int argc, const char * argv[]) {
     ComplexNum num1(1,2), num2(3,4), num3;
     std::cin >> num1;
+    std::cin >> num2;
     std::cout << "Number # 1 : " << num1 << std::endl << "Number # 2 : " << num2 << std::endl;
     num3 = num1 + num2;
     std::cout << "Sum : " << num3 << std::endl;
@@ -21,6 +22,5 @@ int main(int argc, const char * argv[]) {
     std::cout << "Product : " << num3 << std::endl; // (1+2i)*(3+4i) = -5+10i
     num3 = num1 / num2;
     std::cout << "Quotient : " << num3 << std::endl; // (1+2i)/(3+4i) = 0.44+0.08i
-    
     return 0;
 }
