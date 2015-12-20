@@ -16,7 +16,7 @@
 template<typename T>
 class GenericStack {
 public:
-    int getSize();
+    unsigned long getSize();
     void push( T elem );
     T pop();
     T readTop();

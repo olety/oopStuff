@@ -19,11 +19,11 @@ void Exception::printException(){
             break;
         case 2 :
             std::cerr << "Can't divide by zero exception." << std::endl;
-            exit(1);
+            exit(2);
             break;
         case 3 :
             std::cerr << "Bad notation exception." << std::endl;
-            exit(1);
+            exit(3);
             break;
         default :
             std::cerr << "Unknown error." << std::endl;

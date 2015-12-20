@@ -57,7 +57,7 @@ T GenericStack<T>::readTop() {
 }
 
 template <typename T>
-int GenericStack<T>::getSize(){
+unsigned long GenericStack<T>::getSize(){
     return stack.size();
 }
 
