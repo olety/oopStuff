@@ -1,0 +1,23 @@
+//
+//  Exception.hpp
+//  Numbers
+//
+//  Created by Oleksii Kyrylchuk on 12/20/15.
+//  Copyright © 2015 olety. All rights reserved.
+//
+
+#ifndef Exception_hpp
+#define Exception_hpp
+
+#include <iostream>
+
+class Exception{
+public:
+    Exception(int numException);
+    void printException();
+    void terminate();
+private:
+    int numException;
+};
+
+#endif /* Exception_hpp */
