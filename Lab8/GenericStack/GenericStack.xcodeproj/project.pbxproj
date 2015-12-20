@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7750751E1C14E219008A4D36 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7750751D1C14E219008A4D36 /* main.cpp */; };
-		775075261C14E266008A4D36 /* Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 775075241C14E266008A4D36 /* Stack.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -123,7 +122,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				775075261C14E266008A4D36 /* Stack.cpp in Sources */,
 				7750751E1C14E219008A4D36 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

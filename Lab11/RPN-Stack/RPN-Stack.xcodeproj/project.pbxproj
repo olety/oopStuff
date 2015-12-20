@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		779E435B1C27181C0097EA55 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 779E435A1C27181C0097EA55 /* main.cpp */; };
+		779E43651C2722570097EA55 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 779E435A1C27181C0097EA55 /* main.cpp */; };
+		77F96FCA1C272F1D00BC413A /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77F96FC61C272A1A00BC413A /* Exception.cpp */; };
+		77F96FCB1C272F2000BC413A /* RpnParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77F96FC11C2725FF00BC413A /* RpnParser.cpp */; };
+		77F96FCC1C272F2300BC413A /* GenericStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 779E43611C2719390097EA55 /* GenericStack.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		779E43571C27181C0097EA55 /* RPN-Stack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "RPN-Stack"; sourceTree = BUILT_PRODUCTS_DIR; };
 		779E435A1C27181C0097EA55 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		779E43611C2719390097EA55 /* GenericStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenericStack.cpp; sourceTree = "<group>"; };
+		779E43621C2719390097EA55 /* GenericStack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GenericStack.hpp; sourceTree = "<group>"; };
+		77F96FC11C2725FF00BC413A /* RpnParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RpnParser.cpp; sourceTree = "<group>"; };
+		77F96FC21C2725FF00BC413A /* RpnParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RpnParser.hpp; sourceTree = "<group>"; };
+		77F96FC61C272A1A00BC413A /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
+		77F96FC71C272A1A00BC413A /* Exception.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Exception.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +67,38 @@
 			isa = PBXGroup;
 			children = (
 				779E435A1C27181C0097EA55 /* main.cpp */,
+				77F96FC41C2727E700BC413A /* RpnParser */,
+				77F96FC51C2727EF00BC413A /* GenericStack */,
+				77F96FC91C272A3500BC413A /* Exception */,
 			);
 			path = "RPN-Stack";
+			sourceTree = "<group>";
+		};
+		77F96FC41C2727E700BC413A /* RpnParser */ = {
+			isa = PBXGroup;
+			children = (
+				77F96FC11C2725FF00BC413A /* RpnParser.cpp */,
+				77F96FC21C2725FF00BC413A /* RpnParser.hpp */,
+			);
+			name = RpnParser;
+			sourceTree = "<group>";
+		};
+		77F96FC51C2727EF00BC413A /* GenericStack */ = {
+			isa = PBXGroup;
+			children = (
+				779E43611C2719390097EA55 /* GenericStack.cpp */,
+				779E43621C2719390097EA55 /* GenericStack.hpp */,
+			);
+			name = GenericStack;
+			sourceTree = "<group>";
+		};
+		77F96FC91C272A3500BC413A /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				77F96FC61C272A1A00BC413A /* Exception.cpp */,
+				77F96FC71C272A1A00BC413A /* Exception.hpp */,
+			);
+			name = Exception;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				779E435B1C27181C0097EA55 /* main.cpp in Sources */,
+				77F96FCC1C272F2300BC413A /* GenericStack.cpp in Sources */,
+				77F96FCB1C272F2000BC413A /* RpnParser.cpp in Sources */,
+				77F96FCA1C272F1D00BC413A /* Exception.cpp in Sources */,
+				779E43651C2722570097EA55 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +249,7 @@
 		779E435F1C27181C0097EA55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = "-v";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -214,6 +257,7 @@
 		779E43601C27181C0097EA55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = "-v";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -237,6 +281,7 @@
 				779E43601C27181C0097EA55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
